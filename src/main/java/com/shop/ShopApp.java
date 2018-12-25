@@ -37,14 +37,8 @@ public class ShopApp {
         guitar.setHanded(Handed.RIGHT);
         guitar.setName("Les Paul");
         guitar.setPrice(price);
-        // controllerGuitar.saveGuitar(guitar);
 
         controllerGuitar.createGuitar(guitar);
-
-
-        Guitar guitar2 = session.get(Guitar.class,1);
-
-
 
         session.close();
         HibernateSessionRegistery.shutdown();
