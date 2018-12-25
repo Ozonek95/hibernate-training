@@ -23,8 +23,13 @@ public class ControllerProduct {
         try {
             session.getTransaction().begin();
 
+
+            Price price = new Price(12.4f,"Peleny");
+            Product product = new Product(name,catalogNumber);
+            price.getProduct().add(product);
+            product.getPrice().add(price);
             id = mySqlRepositoryProduct
-                            .save(new Product(new Price(13, "PLN"), name, catalogNumber));
+                            .save(product);
 
             session.getTransaction().commit();
         } catch (Exception exception) {

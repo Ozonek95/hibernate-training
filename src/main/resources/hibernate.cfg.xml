@@ -1,13 +1,18 @@
 <hibernate-configuration>
     <session-factory>
+
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/shop</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/shop?useSSL=false</property>
         <property name="hibernate.connection.username">student1</property>
-        <property name="hibernate.connection.password">student1</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.password">student</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
 
         <property name="show_sql">true</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
+
+
 
 
 
@@ -15,6 +20,8 @@
         <mapping class="com.shop.domain.Warehouse"/>
         <mapping class="com.shop.domain.Price"/>
         <mapping class="com.shop.domain.Owner"/>
+        <mapping class="com.shop.domain.Guitar"/>
+        <mapping class="com.shop.domain.GuitarManufacturer"/>
 
     </session-factory>
 </hibernate-configuration>

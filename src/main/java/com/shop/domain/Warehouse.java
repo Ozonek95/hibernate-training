@@ -2,6 +2,7 @@ package com.shop.domain;
 
 import com.shop.domain.dto.WarehouseDTO;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -19,8 +20,7 @@ public class Warehouse {
     @Column(name = "building_number")
     private  String buildingNumber;
     private  String country;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Owner owner;
 
     public Warehouse(String name, String street, String city, String postal, String buildingNumber, String country, Owner owner) {

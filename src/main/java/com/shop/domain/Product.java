@@ -1,6 +1,8 @@
 package com.shop.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="products")
@@ -11,9 +13,8 @@ public class Product {
     @Column(name = "product_id")
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="price_id")
-    private Price price;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Price> price = new ArrayList<>();
 
     private String name;
 
@@ -21,17 +22,61 @@ public class Product {
     private String catalogNumber;
     private String description;
 
+    private Product(){
 
-    public Product(Price price, String name, String catalogNumber) {
+    }
+
+    public Product(List<Price> price, String name, String catalogNumber) {
         this.price = price;
         this.name=name;
         this.catalogNumber=catalogNumber;
     }
 
-
-    private Product(){
-
+    public Product(String name, String catalogNumber) {
+        this.name=name;
+        this.catalogNumber=catalogNumber;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Price> getPrice() {
+        return price;
+    }
+
+    public void setPrice(List<Price> price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCatalogNumber() {
+        return catalogNumber;
+    }
+
+    public void setCatalogNumber(String catalogNumber) {
+        this.catalogNumber = catalogNumber;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Override
     public String toString() {

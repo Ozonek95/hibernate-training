@@ -4,9 +4,6 @@ import com.shop.domain.dto.WarehouseDTO;
 
 public class WarehouseFactory {
 
-    public WarehouseFactory() {
-
-    }
 
     public Warehouse build(WarehouseDTO warehouseDTO){
         Owner owner = new Owner(warehouseDTO.ownerName,Sex.valueOf(warehouseDTO.ownerSex));
