@@ -11,6 +11,8 @@ public class Guitar {
     private String name;
     @Enumerated(EnumType.STRING)
     private Handed handed;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Price price;
     @ManyToOne(cascade = CascadeType.ALL)
     private GuitarManufacturer guitarManufacturer;
 
@@ -47,5 +49,21 @@ public class Guitar {
         this.name = name;
         this.handed = handed;
         this.guitarManufacturer = guitarManufacturer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
     }
 }

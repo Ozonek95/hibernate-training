@@ -24,7 +24,7 @@ public class Price {
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "ProductPrice{" +
                 "priceId=" + priceId +
                 ", value=" + value +
                 ", currency='" + currency + '\'' +

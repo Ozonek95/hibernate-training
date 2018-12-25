@@ -23,5 +23,12 @@
         <mapping class="com.shop.domain.Guitar"/>
         <mapping class="com.shop.domain.GuitarManufacturer"/>
 
+
+        <mapping class="smallpracticeexamples.ProductPrice"/>
+        <mapping class="smallpracticeexamples.ProductOne"/>
+
+
+
+
     </session-factory>
 </hibernate-configuration>

@@ -36,6 +36,7 @@ public class ShopApp {
         guitar.setGuitarManufacturer(guitarManufacturer);
         guitar.setHanded(Handed.RIGHT);
         guitar.setName("Les Paul");
+        guitar.setPrice(price);
         // controllerGuitar.saveGuitar(guitar);
 
         controllerGuitar.createGuitar(guitar);
