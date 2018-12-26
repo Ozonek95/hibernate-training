@@ -40,13 +40,18 @@ public class ShopApp {
         guitar.setName("Les Paul");
         guitar.setPrice(price);
 
+        Guitar guitar1 = new Guitar("Zakk Wylde Edition",Handed.LEFT,guitarManufacturerGibson);
+        controllerGuitar.createGuitar(guitar1);
+
         controllerGuitar.createGuitar(guitar);
 
         controllerGuitar.updateManufacturer(guitarManufacturerFender,1);
 
         controllerGuitar.updatePrice(new Price(2000.0f,"Pesos"),1);
 
-        controllerGuitar.deleteGuitar(1);
+        controllerGuitar.findByPrice(400,2500).forEach(System.out::println);
+
+
 
 
 

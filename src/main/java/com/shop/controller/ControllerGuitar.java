@@ -4,6 +4,7 @@ import com.shop.domain.*;
 import com.shop.repository.mysql.MySqlRepositoryGuitar;
 import org.hibernate.Session;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class ControllerGuitar {
@@ -71,6 +72,13 @@ public class ControllerGuitar {
             session.getTransaction().rollback();
         }
 
+    }
+
+    public List<Guitar> findByPrice(double min, double max){
+        Query query= session.createQuery("from Guitar g where g.price.value > ? and g.price.value < ? ORDER BY g.price.value");
+        query.setParameter(0,min);
+        query.setParameter(1,max);
+        return query.getResultList();
     }
 
     public List<Guitar> findAll(){

@@ -12,7 +12,7 @@ public class GuitarManufacturer {
     private int id;
 
     private String name;
-    @OneToMany( mappedBy = "guitarManufacturer")
+    @OneToMany(mappedBy = "guitarManufacturer")
     private Set<Guitar> guitars;
 
     public GuitarManufacturer(String name) {
@@ -38,7 +38,6 @@ public class GuitarManufacturer {
         return "GuitarManufacturer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", guitars=" + guitars +
                 '}';
     }
 }

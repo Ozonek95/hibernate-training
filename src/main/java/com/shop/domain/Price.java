@@ -13,7 +13,7 @@ public class Price {
     @GeneratedValue
     @Column(name = "price_id")
     private int priceId;
-    private float value;
+    private double value;
     private String currency;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "price")
@@ -53,7 +53,7 @@ public class Price {
         this.priceId = priceId;
     }
 
-    public float getValue() {
+    public double getValue() {
         return value;
     }
 
