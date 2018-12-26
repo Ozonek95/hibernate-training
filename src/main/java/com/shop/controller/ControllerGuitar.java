@@ -4,6 +4,8 @@ import com.shop.domain.*;
 import com.shop.repository.mysql.MySqlRepositoryGuitar;
 import org.hibernate.Session;
 
+import java.util.List;
+
 public class ControllerGuitar {
     private final Session session;
     private final MySqlRepositoryGuitar repositoryGuitar;
@@ -26,6 +28,53 @@ public class ControllerGuitar {
             session.getTransaction().rollback();
         }
         return id;
+    }
+
+    public Guitar find(int productId){
+        return repositoryGuitar.findById(productId);
+    }
+
+    public void updateManufacturer(GuitarManufacturer manufacturer, int guitarId){
+        Guitar guitar = find(guitarId);
+        guitar.setGuitarManufacturer(manufacturer);
+        try {
+            session.getTransaction().begin();
+            repositoryGuitar.update(guitar);
+            session.getTransaction().commit();
+        } catch (Exception e){
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
+    }
+
+    public void updatePrice(Price price,int guitarId){
+        Guitar guitar = find(guitarId);
+        guitar.setPrice(price);
+        try {
+            session.getTransaction().begin();
+            repositoryGuitar.update(guitar);
+            session.getTransaction().commit();
+        } catch (Exception e){
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
+    }
+
+    public void deleteGuitar(int guitarId){
+        Guitar guitar = find(guitarId);
+        try {
+            session.getTransaction().begin();
+            repositoryGuitar.delete(find(guitarId));
+            session.getTransaction().commit();
+        } catch (Exception e){
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
+
+    }
+
+    public List<Guitar> findAll(){
+       return repositoryGuitar.findAll();
     }
 //
     }

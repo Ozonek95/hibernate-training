@@ -2,7 +2,9 @@ package com.shop.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name ="products")
@@ -14,7 +16,7 @@ public class Product {
     private int id;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Price> price = new ArrayList<>();
+    private Set<Price> price;
 
     private String name;
 
@@ -26,15 +28,11 @@ public class Product {
 
     }
 
-    public Product(List<Price> price, String name, String catalogNumber) {
-        this.price = price;
-        this.name=name;
-        this.catalogNumber=catalogNumber;
-    }
 
     public Product(String name, String catalogNumber) {
         this.name=name;
         this.catalogNumber=catalogNumber;
+        this.price = new HashSet<>();
     }
 
     public int getId() {
@@ -45,11 +43,11 @@ public class Product {
         this.id = id;
     }
 
-    public List<Price> getPrice() {
+    public Set<Price> getPrice() {
         return price;
     }
 
-    public void setPrice(List<Price> price) {
+    public void setPrice(Set<Price> price) {
         this.price = price;
     }
 

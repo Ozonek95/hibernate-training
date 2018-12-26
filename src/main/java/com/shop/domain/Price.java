@@ -2,7 +2,10 @@ package com.shop.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table
 public class Price {
@@ -14,13 +17,16 @@ public class Price {
     private String currency;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "price")
-    private List<Product> product = new ArrayList<>();
+    private Set<Product> product;
 
     public Price(float value, String currency) {
         this.value = value;
         this.currency = currency;
+        this.product= new HashSet<>();
     }
-    private Price(){}
+    private Price(){
+        this.product= new HashSet<>();
+    }
 
     @Override
     public String toString() {
@@ -31,11 +37,11 @@ public class Price {
                 '}';
     }
 
-    public List<Product> getProduct() {
+    public Set<Product> getProduct() {
         return product;
     }
 
-    public void setProduct(List<Product> product) {
+    public void setProduct(Set<Product> product) {
         this.product = product;
     }
 

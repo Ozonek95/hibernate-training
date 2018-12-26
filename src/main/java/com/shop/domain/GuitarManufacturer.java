@@ -12,7 +12,7 @@ public class GuitarManufacturer {
     private int id;
 
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "guitarManufacturer")
+    @OneToMany( mappedBy = "guitarManufacturer")
     private Set<Guitar> guitars;
 
     public GuitarManufacturer(String name) {
@@ -31,5 +31,14 @@ public class GuitarManufacturer {
     public GuitarManufacturer(String name, Set<Guitar> guitars) {
         this.name = name;
         this.guitars = guitars;
+    }
+
+    @Override
+    public String toString() {
+        return "GuitarManufacturer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", guitars=" + guitars +
+                '}';
     }
 }

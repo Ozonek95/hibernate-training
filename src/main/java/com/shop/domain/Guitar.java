@@ -66,4 +66,15 @@ public class Guitar {
     public void setPrice(Price price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Guitar{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", handed=" + handed +
+                ", price=" + price +
+                ", guitarManufacturer=" + guitarManufacturer +
+                '}';
+    }
 }
